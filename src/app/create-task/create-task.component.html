@@ -1,0 +1,14 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+    <div class="row">
+        <div class="col-md-6">
+            <label>
+                Name:
+                <input formControlName="name" placeholder="Your name">
+              </label>
+        </div>
+     
+    </div>
+    
+    
+    <button class="btn btn-primary mt-2" type="submit">Send</button>
+  </form>

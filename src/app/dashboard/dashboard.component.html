@@ -1,0 +1,141 @@
+<!-- <button class="btn btn-primary" (click)="addTask()">Create Task</button> -->
+<h2 style="margin-left: 20px;">Add Task</h2>
+<!-- <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+  <div class="row">
+    <div class="col-md-6" style="margin-left: 20px;">
+      <label>
+        Name:
+        <input
+          style="margin-left: 10px;"
+          formControlName="name"
+          placeholder="Your name"
+        />
+      </label>
+    </div>
+  </div>
+
+  <button style="margin-left: 10px;" class="btn btn-primary mt-2" type="submit">
+    {{ isEdit ? 'Update' : 'Add' }}
+  </button>
+</form> -->
+<table id="tabs" style="margin-top: 10px;">
+  <thead>
+    <tr>
+      <th (click)="all()">All</th>
+      <th (click)="pendingData()">Pending</th>
+      <th (click)="completeData()">Complete</th>
+    </tr>
+  </thead>
+</table>
+<table *ngIf="dashboardData" id="customers" style="margin-top: 10px;">
+  <thead>
+    <tr>
+      
+      <th>Name</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of dashboardData">
+      <td>
+        <input (click)="changeStatus(item)" type="checkbox"   />
+        {{ item?.name ? item?.name : '-' }}
+      </td>
+      <td>
+        {{ item?.status ? item?.status : '-' }}
+      </td>
+      <!-- <td>
+        <button style="margin-left: 10px;" (click)="editData(item)">
+          Edit
+        </button>
+        <button style="margin-left: 10px;" (click)="deleteData(item)">
+          Delete
+        </button>
+      </td> -->
+    </tr>
+  </tbody>
+  <tfoot>
+    <nav>
+      <ul class="pagination p-3 m-0 justify-content-end" *ngIf="pagination?.pages && pagination?.pages.length > 1">
+        <li class="paginate_button page-item">
+          <a class="page-link">{{currentPage}} of {{pagination.totalPages}}</a>
+        </li>
+        <li class="paginate_button page-item previous" [ngClass]="{ disabled : currentPage === 1}">
+          <a (click)="getPage(currentPage - 1)" class="page-link"><i class="fa fa-angle-double-left"></i></a>
+        </li>
+        <li class="paginate_button page-item next" [ngClass]="{ disabled: currentPage === pagination.totalPages}">
+          <a (click)="getPage(currentPage + 1)" class="page-link"><i class="fa fa-angle-double-right"></i></a>
+        </li>
+      </ul>
+    </nav>
+  </tfoot>
+</table>
+<!-- <table *ngIf="isPending" id="customers" style="margin-top: 10px;">
+    <thead>
+      <tr>
+        
+        <th>Name</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of Pending">
+        <td>
+          <input (click)="changeStatus(item)" type="checkbox"   />
+          {{ item?.name }}
+        </td>
+        <td>
+          <button style="margin-left: 10px;" (click)="editData(item)">
+            Edit
+          </button>
+          <button style="margin-left: 10px;" (click)="deleteData(item)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table *ngIf="isComplete" id="customers" style="margin-top: 10px;">
+    <thead>
+      <tr>
+        
+        <th>Name</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of Complete">
+        <td>
+          <input (click)="changeStatus(item)" type="checkbox"   />
+          {{ item?.name }}
+        </td>
+        <td>
+          <button style="margin-left: 10px;" (click)="editData(item)">
+            Edit
+          </button>
+          <button style="margin-left: 10px;" (click)="deleteData(item)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table> -->
+<!-- <ngx-datatable [footerHeight]="0" class="material" [rows]="rows" [columnMode]="'force'" [headerHeight]="50"
+  [rowHeight]="50" [scrollbarV]="true" [sorts]="[{prop: 'name', dir: 'desc'}]">
+  
+  <ngx-datatable-column name="Task Name">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{row.name}}
+    </ng-template>
+  </ngx-datatable-column>
+
+  <ngx-datatable-column name="Action">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+     <button (click)="editData(row)" class="btn btn-primary">Edit</button>
+     <button class="btn btn-danger">Delete</button>
+    </ng-template>
+  </ngx-datatable-column>
+
+ 
+
+</ngx-datatable> -->
