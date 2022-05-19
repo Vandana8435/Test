@@ -43,7 +43,7 @@ Pending:any=[{
 ]
 Complete:any=[
 {
-  name:'Signup Module',
+  name:'SignIn Module',
   status:'Complete'
 }]
 
